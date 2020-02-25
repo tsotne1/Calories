@@ -1,1 +1,7 @@
-<%= @food.inspect %>
+<div class="">
+  <%= @food.first.name %>
+  <%= @food.first.calories %>
+</div>
+
+
+<%= link_to "Add", food_meals_path, class: "btn btn-sm btn-success", method: :post %>

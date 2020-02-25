@@ -16,4 +16,8 @@ class MealsController < ApplicationController
       format.js { render partial: 'meals/search_result' }
     end
   end
+
+  def show
+
+  end 
 end

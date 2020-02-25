@@ -4,6 +4,6 @@ Rails.application.routes.draw do
   resources :meals
 
   get 'search_food', to: 'meals#search'
-  
+
   resources :food_meals, only: [:create, :destroy]
 end
