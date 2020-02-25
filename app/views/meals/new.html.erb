@@ -1,13 +1,11 @@
-<%= form_for @meal do |f| %>
+<h1>add food</h1>
 <div>
-  <div class="form-group row">
-    <%= f.label :user_id, class:"col-sm-2 col-form-label" %>
-    <div class="col-sm-10">
-      <%= f.text_field :user_id, class: "form-control", placeholder: "Title", autofocus: true %>
-    </div>
-  </div>
-  <div class="form-group row col-sm-10">
-    <%= f.submit class: "btn btn-primary btn-lg"%>
-  </div>
+  <h1>BREAKFAST</h1>
+  <%= render 'meals/search' %>
+
+  <h1>LUNCH</h1>
+  <%= render 'meals/form' %>
+
+  <h1>DINNER</h1>
+  <%= render 'meals/form' %>
 </div>
-<% end %>
