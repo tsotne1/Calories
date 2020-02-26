@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   get 'food_meals/create'
   root 'home#index'
   resources :meals
