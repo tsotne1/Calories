@@ -8,4 +8,11 @@ class FoodMealsController < ApplicationController
   def index
     @daily_meal = FoodMeal.all
   end
+
+  def destroy
+    foodmeal = FoodMeal.find(params[:id])
+    foodmeal.delete
+    flash[:notice] = "succesfully removed"
+    redirect_to food_meals_path
+  end
 end
