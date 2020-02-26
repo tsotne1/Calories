@@ -1,0 +1,16 @@
+<h1 align="center">All Users</h1>
+<div align="center">
+  <% @users.each do |user| %>
+    <ul class="listing">
+      <div class="card border-default" style="width: 20rem;">
+        <div class="card bg-light">
+          <li><h3><%= link_to user.email, user_path(user) %></h3></li>
+          <% if current_user.status == "admin" %>
+            <li><%= link_to "Delete user", user_path(user), method: :delete,
+                data: { confirm: "Are you sure?"}%></li>
+          <% end %>
+        </div>
+      </div>
+    </ul>
+  <% end %>
+</div>

@@ -7,4 +7,7 @@ Rails.application.routes.draw do
   get 'search_food', to: 'meals#search'
 
   resources :food_meals
+
+  get 'users', to: 'users#index'
+  resources :users,  except: [:index]
 end
