@@ -1,7 +1,8 @@
-<div class="">
-  <%= @food.first.name %>
-  <%= @food.first.calories %>
-</div>
+<% @food.each do |food| %>
+  <div>
+    <%= food.name %>
+    <%= food.calories %>
+  </div>
 
-
-<%= link_to "Add", food_meals_path, class: "btn btn-sm btn-success", method: :post %>
+  <%= link_to "Add", food_meals_path(:food_id => food.id), class: "btn btn-sm btn-success", method: :post %>
+<% end %>

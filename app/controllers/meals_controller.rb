@@ -7,7 +7,15 @@ class MealsController < ApplicationController
   end
 
   def create
-    @meal = Meal.new
+    if @food
+      @foods = @food
+    end
+    @meal = Meal.new(meal_params)
+    if @meal.save
+      respond_to do |format|
+        format.js { render partial: 'meals/search' }
+      end
+    end
   end
 
   def search
@@ -19,5 +27,10 @@ class MealsController < ApplicationController
 
   def show
 
-  end 
+  end
+
+  private
+  def meal_params
+    params.require(:meal).permit(:user_id, :time)
+  end
 end
