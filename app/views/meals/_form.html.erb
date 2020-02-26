@@ -1,9 +1,14 @@
 <%= form_for @meal, remote: true do |f| %>
   <div>
     <div class="form-group row">
-      <%= f.label :time, class:"col-sm-2 col-form-label" %>
-      <div class="col-sm-10">
-        <%= f.text_field :time, class: "form-control", placeholder: "Time", autofocus: true %>
+      <div class="form-group">
+         <%= f.label :time, class:"col-sm-2 col-form-label" %></br>
+         <%= f.label :Breakfast, 'Breakfast' %>
+         <%= f.radio_button :time, 'Breakfast', :checked => true %>
+         <%= f.label :Lunch, 'Lunch' %>
+         <%= f.radio_button :time, 'Lunch' %>
+         <%= f.label :Dinner, 'Dinner' %>
+         <%= f.radio_button :time, 'Dinner' %>
       </div>
     </div>
     <div class="form-group row col-sm-10">

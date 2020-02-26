@@ -1,8 +1,12 @@
 <% @food.each do |food| %>
-  <div>
+<div class="orm-group row no-padding text-center col-md-12">
+  <div >
     <%= food.name %>
-    <%= food.calories %>
+    <%= food.calories %>:calories
+  </div>
+  <div class="">
+    <%= link_to "Add", food_meals_path(:food_id => food.id), class: "btn btn-sm btn-success", method: :post %>
   </div>
 
-  <%= link_to "Add", food_meals_path(:food_id => food.id), class: "btn btn-sm btn-success", method: :post %>
+</div>
 <% end %>
