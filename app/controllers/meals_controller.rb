@@ -7,9 +7,6 @@ class MealsController < ApplicationController
   end
 
   def create
-    if @food
-      @foods = @food
-    end
     @meal = Meal.new(meal_params)
     if @meal.save
       respond_to do |format|
