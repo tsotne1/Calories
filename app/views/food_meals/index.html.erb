@@ -1,3 +1,5 @@
+<%= render 'food_meals/date' %>
+
 <div class="row">
     <div class="col-9">
       <% total_calories = 0 %>
@@ -10,15 +12,18 @@
             </thead>
             <tbody>
               <% @daily_meal.each do |meal| %>
-              <% total_calories += meal.food.calories.to_i %>
-                <tr>
-                  <td><%= meal.food.name %></td>
-                  <td><%= meal.food.calories %></td>
-                  <td><%= meal.created_at.to_date%></td>
-                  <td><%= meal.meal.time %></td>
-                  <td><%= link_to "remove", food_meal_path(meal), method: :delete, data: {confirm: 'Are you sure?'},
-                                                                          class: 'btn btn-sm btn-warning' %></td>
-                </tr>
+              <% #ar vfiltrav bazis doneze da ifiltreba views doneze sachiroa food_meals table-shi user_id-is chamateba%>
+              <% if meal.meal.user_id == current_user.id && meal.meal.created_at.to_date.to_s == "2020-02-25" %>
+                <% total_calories += meal.food.calories.to_i %>
+                  <tr>
+                    <td><%= meal.food.name %></td>
+                    <td><%= meal.food.calories %></td>
+                    <td><%= meal.created_at.to_date%></td>
+                    <td><%= meal.meal.time %></td>
+                    <td><%= link_to "remove", food_meal_path(meal), method: :delete, data: {confirm: 'Are you sure?'},
+                                                                            class: 'btn btn-sm btn-warning' %></td>
+                  </tr>
+                <% end %>
                 <% end %>
             </tbody>
           </table>
