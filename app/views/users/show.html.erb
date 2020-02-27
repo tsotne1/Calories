@@ -13,8 +13,6 @@
               <% @food_meals.each do |meal| %>
                 <% #ar vfiltrav bazis doneze da ifiltreba views doneze sachiroa food_meals table-shi user_id-is chamateba%>
                 <% if meal.meal.user_id == params[:id].to_i %>
-                asdasfasf
-                <%= current_user.status %>
                   <% total_calories += meal.food.calories.to_i %>
                     <tr>
                       <td><%= meal.food.name %></td>

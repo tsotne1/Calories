@@ -5,9 +5,10 @@
       <div class="card border-default" style="width: 20rem;">
         <div class="card bg-light">
           <li><h3><%= link_to user.email, user_path(user) %></h3></li>
-          <% if current_user.status == "admin" %>
+          <% if current_user.status == "admin" || user.id == current_user.id  %>
             <li><%= link_to "Delete user", user_path(user), method: :delete,
                 data: { confirm: "Are you sure?"}%></li>
+            <li><%= link_to "Edit profile", edit_user_registration_path, class:"dropdown-item" %></li>
           <% end %>
         </div>
       </div>
