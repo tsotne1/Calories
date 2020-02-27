@@ -15,7 +15,7 @@
         <tbody>
           <% @daily_meal.each do |meal| %>
           <% #ar vfiltrav bazis doneze da ifiltreba views doneze sachiroa food_meals table-shi user_id-is chamateba%>
-          <% if meal.meal.user_id == current_user.id  %>
+          <% if meal.meal.user_id == current_user.id and meal.created_at.to_date == Date.today %>
             <% total_calories += meal.food.calories.to_i %>
               <tr>
                 <td><%= meal.food.name %></td>

@@ -16,7 +16,9 @@
           <%= link_to 'Users', users_path, class: "nav-link" %>
         </li>
         <li class="nav-item">
-          <a class="nav-link"><%= current_user.email %></a>
+          <% if current_user %>
+            <a class="nav-link"><%= current_user.email %></a>
+          <% end %>
         </li>
         <li class="nav-item">
           <%= link_to 'Sign out', destroy_user_session_path, method: :delete, class: "nav-link" %>
