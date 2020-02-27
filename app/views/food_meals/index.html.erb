@@ -35,14 +35,14 @@
 <% if total_calories_for_progress <= 100 %>
   <div class="progress">
     <div class="progress-bar bg-success" role="progressbar" style="width: <%= total_calories_for_progress %>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
-      <%= total_calories %>
+      <%= total_calories %> /2000
     </div>
   </div>
 <% end %>
 <% if total_calories_for_progress > 100 %>
   <div class="progress">
     <div class="progress-bar bg-danger" role="progressbar" style="width: <%= total_calories_for_progress %>%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-      <%= total_calories %>
+      <%= total_calories %> /2000
     </div>
   </div>
 <% end %>
