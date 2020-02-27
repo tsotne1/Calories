@@ -1,6 +1,4 @@
 class MealsController < ApplicationController
-  before_action :require_same_user, only: [:edit, :update, :destroy]
-  
   def index
   end
 
@@ -29,15 +27,18 @@ class MealsController < ApplicationController
 
   end
 
+  def destroy
+    meals = Meal.all
+    meals.each do |meal|
+        if meal.foods.first == nil
+          meal.delete
+        end
+    end
+    redirect_to food_meals_path
+  end
+
   private
     def meal_params
       params.require(:meal).permit(:user_id, :time)
-    end
-
-    def require_same_user
-      if current_user != @article.user and !current_user.admin?
-        flash[:danger] = "You can only edit or delte your own articles"
-        redirect_to root_path
-      end
     end
 end

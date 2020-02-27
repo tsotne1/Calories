@@ -8,7 +8,7 @@
           <% if current_user.status == "admin" || user.id == current_user.id  %>
             <li><%= link_to "Delete user", user_path(user), method: :delete,
                 data: { confirm: "Are you sure?"}%></li>
-            <li><%= link_to "Edit profile", edit_user_registration_path, class:"dropdown-item" %></li>
+            <li><%= link_to "Edit profile", edit_user_registration_path(user), class:"dropdown-item" %></li>
           <% end %>
         </div>
       </div>
