@@ -10,4 +10,6 @@ Rails.application.routes.draw do
 
   get 'users', to: 'users#index'
   resources :users,  except: [:index]
+
+  get 'datetime', to: 'food_meals#datetime'
 end

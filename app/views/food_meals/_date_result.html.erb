@@ -1,7 +1,3 @@
-<%= render 'food_meals/date' %>
-<div id="date-result">
-
-</div>
 <div class="row">
   <div class="col-9">
     <% total_calories = 0 %>
@@ -13,9 +9,8 @@
           <th scope="col">Meals</th>
         </thead>
         <tbody>
-          <% @daily_meal.each do |meal| %>
-          <% #ar vfiltrav bazis doneze da ifiltreba views doneze sachiroa food_meals table-shi user_id-is chamateba%>
-          <% if meal.meal.user_id == current_user.id  %>
+          <% @meals.each do |meal| %>
+          <% if meal.meal.user_id == current_user.id %>
             <% total_calories += meal.food.calories.to_i %>
               <tr>
                 <td><%= meal.food.name %></td>

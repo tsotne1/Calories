@@ -15,4 +15,13 @@ class FoodMealsController < ApplicationController
     flash[:notice] = "succesfully removed"
     redirect_to food_meals_path
   end
+
+  def datetime
+    @date = params[:search].to_date
+    @meals = FoodMeal.where('Date(created_at) = ?', @date)
+    respond_to do |format|
+      format.js { render partial: 'food_meals/date_result' }
+    end
+
+  end
 end

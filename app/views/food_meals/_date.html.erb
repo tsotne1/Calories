@@ -1,6 +1,15 @@
-<div class="form-group row">
-  <label for="example-datetime-local-input" class="col-2 col-form-label">Date and time</label>
-  <div class="col-10">
-    <input class="form-control" type="datetime-local" value="2019-08-19T13:45:00" id="example-datetime-local-input">
+<%= form_tag datetime_path, remote: true, method: :get do %>
+  <div class="form-group row">
+    <label for="example-date-input" class="col-2 col-form-label">Date</label>
+    <div class="col-5">
+      <%= text_field_tag :search, params[:search], class: "form-control", type: "date", value: "2019-08-19T13:45:00", id: "example-date-input" %>
+    </div>
+    <div class="col-md-0">
+      <%= submit_tag("Search", class: "btn btn-outline-success my-2 my-sm-0") %>
+    </div>
   </div>
+<% end %>
+
+<div id="date-results">
+
 </div>
