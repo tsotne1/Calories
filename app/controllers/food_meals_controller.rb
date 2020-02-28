@@ -6,9 +6,11 @@ class FoodMealsController < ApplicationController
     current_foodmeal = FoodMeal.last
     if current_meal.eat_datetime
       current_foodmeal.eat_datetime = current_meal.eat_datetime
+      current_foodmeal.date = current_meal.eat_datetime.to_date
     else
       current_meal.eat_datetime = Time.now
       current_foodmeal.eat_datetime = current_meal.eat_datetime
+      current_foodmeal.date = current_meal.eat_datetime.to_date
     end
     current_foodmeal.save
     redirect_to food_meals_path
@@ -33,7 +35,7 @@ class FoodMealsController < ApplicationController
         format.js { render partial: 'food_meals/date_result' }
       end
     elsif params[:to] && params[:from] != nil
-      @meals = FoodMeal.where(eat_datetime: params[:from].to_date...params[:to].to_date).order('eat_datetime DESC')
+      @meals_group = FoodMeal.where(eat_datetime: params[:from].to_date...params[:to].to_date).order('eat_datetime DESC').group_by(&:date).values
       respond_to do |format|
         format.js { render partial: 'food_meals/range_result' }
       end
