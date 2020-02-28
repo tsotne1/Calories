@@ -1,0 +1,47 @@
+<div class="row">
+  <div class="col-9">
+    <% @meals.each do |meal| %>
+      <% total_calories = 0 %>
+        <table id="example" class="table table-dark table-bordered table-hover">
+          <thead>
+            <th scope="col">Food</th>
+            <th scope="col">Calories</th>
+            <th scope="col">Eat Date</th>
+            <th scope="col">Eat Time</th>
+            <th scope="col">Meals</th>
+          </thead>
+          <tbody>
+            <% if meal.meal.user_id == current_user.id %>
+              <% total_calories += meal.food.calories.to_i %>
+                <tr>
+                  <td><%= meal.food.name %></td>
+                  <td><%= meal.food.calories %></td>
+                  <td><%= meal.eat_datetime.to_date%></td>
+                  <td><%= meal.eat_datetime.strftime("%I:%M")%></td>
+                  <td><%= meal.meal.time %></td>
+                  <td><%= link_to "remove", food_meal_path(meal), method: :delete, data: {confirm: 'Are you sure?'},
+                                                                          class: 'btn btn-sm btn-warning' %></td>
+                </tr>
+              <% end %>
+
+          </tbody>
+        </table>
+      <% end %>
+  </div>
+</div>
+
+<% total_calories_for_progress = total_calories / 20 %>
+<% if total_calories_for_progress <= 100 %>
+  <div class="progress">
+    <div class="progress-bar bg-success" role="progressbar" style="width: <%= total_calories_for_progress %>%" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">
+      <%= total_calories %>
+    </div>
+  </div>
+<% end %>
+<% if total_calories_for_progress > 100 %>
+  <div class="progress">
+    <div class="progress-bar bg-danger" role="progressbar" style="width: <%= total_calories_for_progress %>%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+      <%= total_calories %>
+    </div>
+  </div>
+<% end %>

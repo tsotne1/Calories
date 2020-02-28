@@ -4,6 +4,15 @@
     <div class="col-5">
       <%= text_field_tag :search, params[:search], class: "form-control", type: "date", value: "2019-08-19T13:45:00", id: "example-date-input" %>
     </div>
+    <div class="">
+      <div class="col-0">
+        <%= text_field_tag :from, params[:from], class: "form-control", type: "date", value: "2019-08-19T13:45:00", id: "example-date-input" %>
+      </div>
+      <div class="col-0">
+        Hystory From - To
+        <%= text_field_tag :to, params[:to], class: "form-control", type: "date", value: "2019-08-19T13:45:00", id: "example-date-input" %>
+      </div>
+    </div>
     <div class="col-md-0">
       <%= submit_tag("Search", class: "btn btn-outline-success my-2 my-sm-0") %>
     </div>

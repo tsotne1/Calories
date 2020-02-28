@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   resources :users,  except: [:index]
 
   get 'datetime', to: 'food_meals#datetime'
+  get 'datetime_range', to: 'food_meals#datetime_range'
 
   get 'destroy_meal', to: 'meals#destroy'
+
 end

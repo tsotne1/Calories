@@ -5,7 +5,8 @@
         <thead>
           <th scope="col">Food</th>
           <th scope="col">Calories</th>
-          <th scope="col">Date</th>
+          <th scope="col">Eat Date</th>
+          <th scope="col">Eat Time</th>
           <th scope="col">Meals</th>
         </thead>
         <tbody>
@@ -15,7 +16,8 @@
               <tr>
                 <td><%= meal.food.name %></td>
                 <td><%= meal.food.calories %></td>
-                <td><%= meal.created_at.to_date%></td>
+                <td><%= meal.eat_datetime.to_date%></td>
+                <td><%= meal.eat_datetime.strftime("%I:%M")%></td>
                 <td><%= meal.meal.time %></td>
                 <td><%= link_to "remove", food_meal_path(meal), method: :delete, data: {confirm: 'Are you sure?'},
                                                                         class: 'btn btn-sm btn-warning' %></td>

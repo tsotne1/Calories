@@ -9,6 +9,7 @@ class MealsController < ApplicationController
   def create
     @meal = Meal.new(meal_params)
     @meal.user = current_user
+    @meal.eat_datetime = params[:eat_datetime]
     if @meal.save
       respond_to do |format|
         format.js { render partial: 'meals/search' }
